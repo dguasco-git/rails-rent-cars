@@ -1,0 +1,8 @@
+<% @cars.each do |car| %>
+  <%= car.brand %>
+  <%= car.model %>
+  <%= car.year_of_production %>
+  <%= car.address %>
+  <%= car.price_per_day %>
+  <%= link_to "More details", car_path(car) %><br><br>
+<% end %>

@@ -1,0 +1,6 @@
+<h1><%= @car.brand %></h1>
+<p><strong>Model :</strong> <%= @car.model %></p>
+<p><strong>Year of production :</strong> <%= @car.year_of_production %></p>
+<p><strong>Address :</strong> <%= @car.address %></p>
+<p><strong>Price per day :</strong> <%= @car.price_per_day %> €</p>
+<%= link_to "Book the car", new_car_booking_path(@car) %>
