@@ -1,0 +1,8 @@
+<h1>Your bookings</h1>
+
+<% @booking.each do |booking| %>
+  <p><%= booking.car.brand %></p>
+  <p>Date de début : <%= booking.starts_at %></p>
+  <p>Date de fin : <%= booking.ends_at %></p>
+  <%= link_to "Back to cars", cars_path %><br><br>
+<% end %>
