@@ -1,12 +1,13 @@
 <h1>Your bookings</h1>
-<% if @bookings = 0 %>
+<% if @bookings.blank? %>
   <p><%= "You have no bookings. Don't hesitate to book your favourite car !" %></p>
-  <%= link_to "Back to cars", cars_path %>
+  <%= link_to "Back to cars", cars_path, class: "btn btn-success" %>
 <% else %>
-  <% @booking.each do |booking| %>
+  <% @bookings.each do |booking| %>
     <p><%= booking.car.brand %></p>
     <p>Date de début : <%= booking.starts_at %></p>
     <p>Date de fin : <%= booking.ends_at %></p>
-    <%= link_to "Back to cars", cars_path %><br><br>
+    <p>Accepted : <%= booking.accepted %></p><br><br>
   <% end %>
+  <%= link_to "Back to cars", cars_path, class: "btn btn-success" %>
 <% end %>

@@ -1,7 +1,21 @@
-<h1><%= @car.brand %></h1>
-<img src=<%= @car.photo_url %>></>
-<p><strong>Model :</strong> <%= @car.model %></p>
-<p><strong>Year of production :</strong> <%= @car.year_of_production %></p>
-<p><strong>Address :</strong> <%= @car.address %></p>
-<p><strong>Price per day :</strong> <%= @car.price_per_day %> €</p>
-<%= link_to "Book the car", new_car_booking_path(@car) %>
+<div class="container">
+  <h1><%= @car.brand %></h1>
+  <img src=<%= @car.photo_url %>></>
+  <p><strong>Model :</strong> <%= @car.model %></p>
+  <p><strong>Year of production :</strong> <%= @car.year_of_production %></p>
+  <p><strong>Address :</strong> <%= @car.address %></p>
+  <p><strong>Price per day :</strong> <%= @car.price_per_day %> €</p>
+  <%# <%= link_to "Book the car", new_car_booking_path(@car) %>
+  <%= link_to "Back to cars", cars_path, class: "btn btn-success" %>
+</div>
+
+
+
+<div class="container mt-5">
+  <h1>Book the Car</h1>
+  <%= simple_form_for [@car, @booking] do |f| %>
+    <%= f.input :starts_at, as: :string, input_html: { data: { controller: 'flatpickr' } } %>
+    <%= f.input :ends_at, as: :string, input_html: { data: { controller: 'flatpickr' } } %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>

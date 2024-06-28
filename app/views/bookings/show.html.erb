@@ -1,2 +1,21 @@
-Date de début : <%= @booking.starts_at %>
-Date de fin : <%= @booking.ends_at %>
+
+<div class="booked-car">
+<h1>Booking informations</h1>
+<p><%= @booking.car.brand %></p>
+<p>Date de début : <%= @booking.starts_at %></p>
+<p>Date de fin : <%= @booking.ends_at %></p>
+<p>Accepted : <%= @booking.accepted %></p>
+</div>
+
+
+<% if flash[:notice].present? %>
+  <div class="alert alert-success alert alert-dismissible fade show" role="alert">
+    <%= flash[:notice] %>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+<% end %>
+
+<p><%= link_to "All Bookings", bookings_path, class: "btn btn-success" %></p>
+<p><%= link_to "Back to Cars", cars_path, class: "btn btn-success" %></p>
